@@ -87,6 +87,7 @@ def launch_app_window(app_name, x, y, width, height):
     app_command = {
         "gnome-terminal": "gnome-terminal",
         "chrome": "/usr/bin/google-chrome-stable",
+        "mattermost-desk": "mattermost-desktop",
     }.get(app_name, app_name)
 
     subprocess.Popen(["/bin/bash", "-c", f"{app_command}{option}"])
