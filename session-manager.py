@@ -49,13 +49,11 @@ def get_screen_resolution():
 
 def get_display_layout_hash():
     xrandr_output = run_command("xrandr --listmonitors")
-    print(xrandr_output)
     return hashlib.sha256(xrandr_output.encode("utf-8")).hexdigest()
 
 
 def get_session_filepath():
     layout_hash = get_display_layout_hash()
-    print(layout_hash)
     return os.path.join(BASE_DIR, f"session_{layout_hash}.txt")
 
 
