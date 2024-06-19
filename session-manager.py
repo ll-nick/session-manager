@@ -101,7 +101,8 @@ def launch_app_window(app_name, workspace, x, y, width, height):
 
     processes = run_command("ps -e -o pid,cmd").splitlines()
     for process in processes:
-        if app_name in process:
+        pid = process.split()[0]
+        if app_name in process and pid in existing_windows:
             return
 
     app_command = get_app_command(app_name)
